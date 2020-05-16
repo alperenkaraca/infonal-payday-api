@@ -1,11 +1,12 @@
 package com.paydaybank.work.entity;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 @Entity
 public class Product extends BaseEntity {
 
-    public Product( String name, Integer price, Boolean available, String description) {
+    public Product( String name, Double price, Boolean available, String description) {
         this.name = name;
         this.price = price;
         this.available= available;
@@ -19,9 +20,9 @@ public class Product extends BaseEntity {
     private String name;
 
     @Column(name="price", nullable = false)
-    private Integer price;
+    private Double price;
 
-    @Column(name = "description")
+    @Column(name = "description",length=100000)
     private String description;
 
     @Column(name = "available")
@@ -36,11 +37,11 @@ public class Product extends BaseEntity {
         this.name = name;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

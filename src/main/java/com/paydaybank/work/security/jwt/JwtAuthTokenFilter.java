@@ -1,6 +1,7 @@
 package com.paydaybank.work.security.jwt;
 
 
+import com.paydaybank.work.repository.UserRepository;
 import com.paydaybank.work.security.services.UserDetailsServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
