@@ -5,9 +5,7 @@ import com.paydaybank.work.service.ProductService;
 import com.paydaybank.work.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,7 +22,12 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllItems() {
-        return ResponseEntity.ok(productService.findItems());
+    public ResponseEntity<List<Product>> getAllProducts() {
+        return ResponseEntity.ok(productService.findProducts());
+    }
+
+    @PostMapping("/products")
+    public ResponseEntity<List<Product>> updateProducts(@RequestBody Product product) {
+        return ResponseEntity.ok(productService.updateProduct(product));
     }
 }

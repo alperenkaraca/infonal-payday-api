@@ -4,11 +4,17 @@ public class UserInfoResponse {
     private String username;
     private String email;
     private String title;
+    private Long id;
 
-    public UserInfoResponse(String username, String email, String title) {
+    public UserInfoResponse(String username, String email, String title, Long id) {
         this.username = username;
         this.email = email;
         this.title = title;
+        this.id = id;
+    }
+
+    public UserInfoResponse()
+    {
     }
 
     public String getUsername() {
@@ -33,5 +39,13 @@ public class UserInfoResponse {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

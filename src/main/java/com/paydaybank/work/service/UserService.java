@@ -30,7 +30,26 @@ public class UserService {
             return new UserInfoResponse(
                     userInfo.getUsername(),
                     userInfo.getEmail(),
-                    userInfo.getTitle()
+                    userInfo.getTitle(),
+                    userInfo.getId()
+            );
+        }
+        return null;
+    }
+
+    public UserInfoResponse updateUserInfo(UserInfoResponse userInfo) {
+        Optional<User> user = userRepository.findById(userInfo.getId());
+        User updatedInfo = user.orElse(null);
+        updatedInfo.setEmail(userInfo.getEmail());
+        updatedInfo.setTitle(userInfo.getTitle());
+        updatedInfo.setUsername(userInfo.getUsername());
+        userRepository.save(updatedInfo);
+        if(updatedInfo!=null){
+            return new UserInfoResponse(
+                    updatedInfo.getUsername(),
+                    updatedInfo.getEmail(),
+                    updatedInfo.getTitle(),
+                    updatedInfo.getId()
             );
         }
         return null;
